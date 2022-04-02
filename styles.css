@@ -1,0 +1,70 @@
+body{
+    
+    background-image: linear-gradient(to bottom right, black, #001247);
+    background-size: cover;
+    margin:0;
+    width: 100vw;
+    height: 100vh;
+}
+
+header img{
+    max-width: 100%;
+    max-height: 100%;
+    
+}
+
+header{
+    height: 75px;
+    display: flex;
+    grid-column: 1/5;
+    grid-row: 1;
+    justify-content: center;
+    
+}
+.wrapper{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    font-family: 'Inconsolata', monospace;
+    color: #ffffff;
+}
+
+.searchFields{
+    
+    grid-column: 1;
+    grid-row: auto;
+    
+    font-size: 20px;
+}
+
+input{
+    
+    font-size: 18px;
+    font-family: 'Inconsolata', monospace;
+    width: 150px;
+    color: #001247;
+    font-weight: 600;
+}
+
+.searchResults{
+    
+    grid-column: 2/5;
+    grid-row: auto;
+    font-weight: 600;
+}
+
+.wrapper > *{
+    border: 2px solid black;
+    padding: 10px;
+}
+
+
+/*
+font-family: 'Gowun Batang', serif;
+font-family: 'Gowun Dodum', sans-serif;
+font-family: 'Inconsolata', monospace;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Nunito', sans-serif;
+*/
