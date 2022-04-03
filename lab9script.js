@@ -33,17 +33,56 @@ function loadFile(){
 
 //when user enters client ID
 function searchByID(clientID){
+    console.log("function searchByID");//testing
     document.getElementById("searchHeader").innerHTML="Search by Client ID <br>";
     //table data column-headers first
     var output = "<tr> <th>ID</th> <th>First Name</th> <th>Last Name</th>  <th>Address</th> <th>Postal Code</th> <th>Phone</th> <th>Type</th> </tr>"
+
+    var searchID;
+
+    for (var i=0; i < data.length; i++){
+        var obj =data[i];
+        searchID=  obj.id.toString();
+        console.log(`search ID at line 45: ${searchID}`);
+        if(searchID.startsWith(clientID)){
+            output += `<tr><td> ${obj.id} </td> <td> ${obj.firstName} </td> <td> ${obj.lastName} </td> <td> ${obj.address} </td> <td> ${obj.postalCode} </td> <td> ${obj.phone} </td> <td> ${obj.type} </td>`;
+        }
+
+    }
     
     //outpot format as table
     document.getElementById("searchResultTable").innerHTML=output;    
+    //keep area clean, only show on function
+    document.getElementById("searchResults").style.display = "block";
     
 }
 
 //when user enters last name
 function searchByLastName(lastName){
+    console.log("function searchByLastName");//testing
+    document.getElementById("searchHeader").innerHTML="Search by Client Last Bane <br>";
+    //table data column-headers first
+    var output = "<tr> <th>ID</th> <th>First Name</th> <th>Last Name</th>  <th>Address</th> <th>Postal Code</th> <th>Phone</th> <th>Type</th> </tr>";
+
+    var searchname;
+
+    for (var i=0; i < data.length; i++){
+        var obj =data[i];
+        searchname=  obj.lastName.toLowerCase();
+        lastName = lastName.toLowerCase();
+        
+        //case insensitive search
+        if(searchname.startsWith(lastName)){
+            output += `<tr><td> ${obj.id} </td> <td> ${obj.firstName} </td> <td> ${obj.lastName} </td> <td> ${obj.address} </td> <td> ${obj.postalCode} </td> <td> ${obj.phone} </td> <td> ${obj.type} </td>`;
+        }
+
+    }
+    
+    //outpot format as table
+    document.getElementById("searchResultTable").innerHTML=output;    
+    //keep area clean, only show on function
+    document.getElementById("searchResults").style.display = "block";
+
     
 }
 

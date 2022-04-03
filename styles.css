@@ -2,9 +2,11 @@ body{
     
     background-image: linear-gradient(to bottom right, black, #001247);
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     margin:0;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
 }
 
 header img{
@@ -32,10 +34,8 @@ header{
 }
 
 .searchFields{
-    
     grid-column: 1;
     grid-row: auto;
-    
     font-size: 20px;
 }
 
@@ -49,18 +49,30 @@ input{
 }
 
 .searchResults{
-    
+    display: none;
     grid-column: 2/5;
     grid-row: auto;
     font-weight: 600;
 }
 
 .wrapper > *{
-    border: 2px solid black;
+    
     padding: 10px;
 }
+#searchResultTable {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 20px;
+    width: 100%;
+}
+#searchResultTable th{
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
 
-
+#searchResultTable td{
+    text-align: center;
+    font-weight: 200;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
 /*
 font-family: 'Gowun Batang', serif;
 font-family: 'Gowun Dodum', sans-serif;
