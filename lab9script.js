@@ -22,7 +22,7 @@ function loadFile(){
             data = JSON.parse(xmlobj.responseText);
         }
         
-    }
+    };
     
     xmlobj.open("GET", "ClientData.json", true);
     xmlobj.send();
@@ -36,7 +36,7 @@ function searchByID(clientID){
     console.log("function searchByID");//testing
     document.getElementById("searchHeader").innerHTML="Search by Client ID <br>";
     //table data column-headers first
-    var output = "<tr> <th>ID</th> <th>First Name</th> <th>Last Name</th>  <th>Address</th> <th>Postal Code</th> <th>Phone</th> <th>Type</th> </tr>"
+    var output = "<tr> <th>ID</th> <th>First Name</th> <th>Last Name</th>  <th>Address</th> <th>Postal Code</th> <th>Phone</th> <th>Type</th> </tr>";
 
     var searchID;
 
@@ -60,7 +60,7 @@ function searchByID(clientID){
 //when user enters last name
 function searchByLastName(lastName){
     console.log("function searchByLastName");//testing
-    document.getElementById("searchHeader").innerHTML="Search by Client Last Bane <br>";
+    document.getElementById("searchHeader").innerHTML="Search by Client Last Name <br>";
     //table data column-headers first
     var output = "<tr> <th>ID</th> <th>First Name</th> <th>Last Name</th>  <th>Address</th> <th>Postal Code</th> <th>Phone</th> <th>Type</th> </tr>";
 
@@ -89,5 +89,29 @@ function searchByLastName(lastName){
 
 //when user enters phone number
 function searchByPhoneNumber(phoneNumber){
+
+    console.log("function searchByPhoneNumber");//testing
+    document.getElementById("searchHeader").innerHTML="Search by Client Phone Number <br>";
+    //table data column-headers first
+    var output = "<tr> <th>ID</th> <th>First Name</th> <th>Last Name</th>  <th>Address</th> <th>Postal Code</th> <th>Phone</th> <th>Type</th> </tr>";
+
+    var searchnumber;
+
+    for (var i=0; i < data.length; i++){
+        var obj =data[i];
+        searchnumber=  obj.phone.toString();
+        
+        
+     
+        if(searchnumber.startsWith(phoneNumber)){
+            output += `<tr><td> ${obj.id} </td> <td> ${obj.firstName} </td> <td> ${obj.lastName} </td> <td> ${obj.address} </td> <td> ${obj.postalCode} </td> <td> ${obj.phone} </td> <td> ${obj.type} </td>`;
+        }
+
+    }
+    
+    //outpot format as table
+    document.getElementById("searchResultTable").innerHTML=output;    
+    //keep area clean, only show on function
+    document.getElementById("searchResults").style.display = "block";
     
 }
