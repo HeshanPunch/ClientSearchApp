@@ -1,4 +1,4 @@
-CPRG 256
+SAIT - Web Development Course
 LAB ASSIGNMENT 10
 EXTERNAL JSON FILES
 Learning: HTML, CSS, JSON, AJAX call and JavaScript
